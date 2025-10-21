@@ -79,30 +79,36 @@
     .about p { line-height: 1.7; color: #d7dce3; }
 
     /* NEWS */
-  .news-list { display: grid; gap: 14px; }
-  .news-item {
-    background: var(--card);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 14px;
-    padding: 16px;
-    display: grid;
-    grid-template-columns: 96px 1fr; /* left: image, right: content */
-    gap: 14px;
-    align-items: center;
-  }
-  .news-item img.thumb {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,.10);
-  }
-  .news-item time { color: var(--muted); font-size: 14px; display: block; margin-bottom: 4px; }
-  .news-item h4 { margin: 2px 0 6px; }
+    .news-list { display: grid; gap: 16px; }
+    .news-item {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 160px 1fr; /* increased from 96px */
+      gap: 18px;
+      align-items: center;
+    }
+    .news-item img.thumb {
+      width: 100%;
+      aspect-ratio: 16 / 12; /* slightly taller */
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .news-item time { color: var(--muted); font-size: 14px; display: block; margin-bottom: 4px; }
+    .news-item h4 { margin: 2px 0 6px; }
 
-  @media (max-width: 560px){
-    .news-item { grid-template-columns: 80px 1fr; }
-  }
+    @media (max-width: 560px){
+      .news-item { grid-template-columns: 1fr; }
+      .news-item img.thumb {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+      }
+    }
+
     /* PUBLICATIONS */
     .pub-list { display: grid; gap: 14px; }
     .pub { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 16px; }
@@ -174,7 +180,7 @@
       <div class="hero-card">
         <img class="avatar" src="assets/portrait.jpg" alt="Portrait" />
         <div>
-          <h1>Stavya Datta.</h1>
+          <h1>Stavya Datta</h1>
           <p class="meta">PhD Researcher, Monash University. Human–Robot Interaction, Agentic AI, Multimodal Systems.</p>
           <div class="chipbar">
             <span class="chip">Social Robotics</span>
@@ -184,10 +190,10 @@
           </div>
           <div class="spacer"></div>
           <div class="social">
+            <a href="https://vl4ai.erc.monash.edu/people.html#:~:text=Stavya%20Datta,large%20language%20models." target="_blank" rel="noopener">VL4AI Association</a>
             <a href="https://www.linkedin.com/in/stavyadatta" target="_blank" rel="noopener">LinkedIn</a>
             <a href="https://scholar.google.com/citations?user=EDMBz7vDwvYC&hl=en" target="_blank" rel="noopener">Google Scholar</a>
             <a href="mailto:stavya.datta1@monash.edu">Email</a>
-            <a href="assets/CV.pdf" target="_blank" rel="noopener">CV</a>
           </div>
         </div>
       </div>
@@ -200,11 +206,15 @@
       <h2 class="section-title">About</h2>
       <p>
         I study long‑term human‑robot social interactions. My work integrates
-        speech, vision, and action with social world‑model graphs, towards creating anthropomorphic humanoids.
+        speech, vision, and action with social world‑model graphs, towards creating anthropomorphic humanoids. We call this project GINNY at Monash University, under which we will be publishing more work in future. 
       </p>
       <p>
         I have over two years of combined research and industry experience as a Computer Vision and AI Engineer.
-        At Monash University, I contributed to the DARPA ANSR project as a Research Assistant, developing
+        At Monash University, I contributed to the 
+        <a href="https://www.darpa.mil/news/2023/ansrs-ai-questions" target="_blank" rel="noopener">
+        DARPA ANSR Project 
+        </a>
+        as a Research Assistant, developing
         autonomous perception and tracking modules for aerial simulation environments. My research focuses on
         social robotics and multimodal reasoning, where I work on building agentic AI systems for long-term
         human–robot interaction.
@@ -238,42 +248,56 @@
     <p class="section-lead">Recent updates and highlights.</p>
     <div class="news-list">
       <article class="news-item">
-        <img class="thumb" src="assets/news/2025-10-hri.jpg" alt="HRI 2026 submission" loading="lazy" />
+        <a href="https://www.instagram.com/p/DPm0w9Xj4wj/?utm_source=ig_web_copy_link" target="_blank" rel="noopener">
+        <img class="thumb" src="assets/news/pax_melbourne.png" alt="PAX Melbourne demo" loading="lazy" />
+        </a>
+        <a href="https://www.instagram.com/p/DPm0w9Xj4wj/?utm_source=ig_web_copy_link" target="_blank" rel="noopener">
         <div>
           <time>Oct 2025</time>
-          <h4>Paper under review at HRI 2026</h4>
-          <p class="muted">ARIS: Agentic and Relationship Intelligence System for Social Robots.</p>
+          <h4>Demo at PAX Melbourne</h4>
+          <p class="muted">Live GINNY robot demo of Agentic Reasoning and Social World Model memory.</p>
         </div>
+        </a>
       </article>
-
+      
       <article class="news-item">
-        <img class="thumb" src="assets/news/2025-09-pax.jpg" alt="PAX Melbourne demo" loading="lazy" />
+        <img class="thumb" src="assets/news/framework (1).png" alt="HRI 2026 submission" loading="lazy" />
         <div>
           <time>Sep 2025</time>
-          <h4>Demo at PAX Melbourne</h4>
-          <p class="muted">Live Pepper demo of agentic reasoning and world-model memory.</p>
+          <h4>Paper under review at HRI 2026</h4>
+          <p class="muted">ARIS: Agentic and Relationship Intelligence System for Social Robots. Part of GINNY Project</p>
         </div>
       </article>
 
+
       <article class="news-item">
-        <img class="thumb" src="assets/news/2025-08-talk.jpg" alt="Invited talk" loading="lazy" />
+        <a href="https://www.linkedin.com/posts/stavyadatta_the-monash-ai-institute-hosted-prof-simon-activity-7356928029635350528-cmz3?utm_source=share&utm_medium=member_desktop&rcm=ACoAACbylRoBG9xhkbSYtOg1b3JcxaOtmpRwqCc" target="_blank" rel="noopener">
+          <img class="thumb" src="./assets/news/1754020516246.jpeg" alt="Invited talk" loading="lazy"/>
+        </a>
+        <a href="https://www.linkedin.com/posts/stavyadatta_the-monash-ai-institute-hosted-prof-simon-activity-7356928029635350528-cmz3?utm_source=share&utm_medium=member_desktop&rcm=ACoAACbylRoBG9xhkbSYtOg1b3JcxaOtmpRwqCc" target="_blank" rel="noopener">
         <div>
           <time>Aug 2025</time>
-          <h4>Invited talk</h4>
+          <h4>Presented GINNY Project to NVIDIA's 
+              Prof. Simon See
+            </h4>
           <p class="muted">Spoke on multimodal agents and social embodiment.</p>
         </div>
+        </a>
       </article>
 
       <article class="news-item">
-        <img class="thumb" src="assets/news/2025-07-photos.jpg" alt="Photo gallery" loading="lazy" />
+        <a href="https://www.linkedin.com/posts/stavyadatta_monashopenday-activity-7361943567201693696-bvos?utm_source=share&utm_medium=member_desktop&rcm=ACoAACbylRoBG9xhkbSYtOg1b3JcxaOtmpRwqCc" target="_blank" rel="noopener">
+        <img class="thumb" src="./assets/news/open_day.jpeg" alt="open day" loading="lazy" />
+        </a>
+        <a href="https://www.linkedin.com/posts/stavyadatta_monashopenday-activity-7361943567201693696-bvos?utm_source=share&utm_medium=member_desktop&rcm=ACoAACbylRoBG9xhkbSYtOg1b3JcxaOtmpRwqCc" target="_blank" rel="noopener">
         <div>
-          <time>Jul 2025</time>
-          <h4>Photos</h4>
+          <time>Aug 2025</time>
+          <h4>Monash Open Day 2025, GINNY Demonstration</h4>
           <p class="muted">
-            Explore event highlights in the
-            <a href="https://photos.app.goo.gl/examplelink" target="_blank" rel="noopener">Photo Gallery →</a>
+            Demonstrated GINNY robot's social interaction capabilities to prospective students and visitors.
           </p>
         </div>
+        </a>
       </article>
     </div>
   </div>
@@ -290,7 +314,7 @@
         <div class="authors">Z. Cai, C.R. Cardenas, K. Leo, C. Zhang, K. Backman, H. Li, B. Li, M. Ghorbanali, <strong>S. Datta</strong>, L. Qu, J.G. Santiago (2024)</div>
         <span class="venue">RA-L</span>
         <div class="pub-links">
-          <a class="btn" href="https://arxiv.org/abs/2409.10196" target="_blank" rel="noopener">arXiv</a>
+          <a class="btn" href="https://arxiv.org/abs/2409.10196" target="_blank" rel="noopener">Paper</a>
         </div>
       </div>
 
@@ -299,9 +323,7 @@
         <div class="authors">D.T. Le, C. Gou, <strong>S. Datta</strong>, H. Shi, I. Reid, J. Cai, H. Rezatofighi (2024)</div>
         <span class="venue">CVPR 2024</span>
         <div class="pub-links">
-          <a class="btn" href="https://openaccess.thecvf.com" target="_blank" rel="noopener">Paper</a>
-          <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
-          <a class="btn" href="#" target="_blank" rel="noopener">Dataset</a>
+          <a class="btn" href="https://openaccess.thecvf.com/content/CVPR2024/html/Le_JRDB-PanoTrack_An_Open-world_Panoptic_Segmentation_and_Tracking_Robotic_Dataset_in_CVPR_2024_paper.html" target="_blank" rel="noopener">Paper</a>
         </div>
       </div>
     </div>
@@ -310,30 +332,53 @@
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      <div class="timeline">
-        <div class="titem">
-          <div class="dot"></div>
-          <h4>PhD Researcher</h4>
-          <div class="where">Monash University · 2025—Present</div>
-          <p class="muted">Agentic AI for social robots, multimodal reasoning, HRI studies.</p>
-        </div>
-        <div class="titem">
-          <div class="dot"></div>
-          <h4>Head TA (FIT3080)</h4>
-          <div class="where">Monash University · 2024</div>
-          <p class="muted">Led tutorials and assessments for CV course, student mentoring.</p>
-        </div>
-        <div class="titem">
-          <div class="dot"></div>
-          <h4>Computer Vision Engineer</h4>
-          <div class="where">Industry · 2022—2023</div>
-          <p class="muted">Deployed vision systems for perception and analytics.</p>
-        </div>
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <div class="titem">
+        <div class="dot"></div>
+        <h4>PhD Researcher</h4>
+        <div class="where">Monash University · 2025—Present</div>
+        <p class="muted">Working on developing agentic AI systems for social robots. Focused on long-term human–robot interactions, social reasoning, and embodiment using Pepper robot.</p>
+      </div>
+
+      <div class="titem">
+        <div class="dot"></div>
+        <h4>Teaching Associate & Sessional Academic</h4>
+        <div class="where">Monash University · 2024—Present</div>
+        <p class="muted">Teaching Artificial Intelligence (FIT3080) and Python Programming (FIT9136). Currently teaching Software Projects (FIT3161/62/63/64). Managed tutors, designed assessments, and maintained a high student satisfaction score of 93/100.</p>
+      </div>
+
+      <div class="titem">
+        <div class="dot"></div>
+        <h4>Research Assistant — DARPA ANSR Project</h4>
+        <div class="where">Monash University · 2024</div>
+        <p class="muted">Contributed to NEUSIS framework under DARPA’s ANSR collaboration. Integrated computer vision modules and simulation environments for autonomous aerial perception and tracking.</p>
+      </div>
+
+      <div class="titem">
+        <div class="dot"></div>
+        <h4>Deputy Manager (Computer Vision)</h4>
+        <div class="where">Aditya Infotech · 2023—2024</div>
+        <p class="muted">Led the development of a no-code computer vision analytics platform <em>smarth Dynamic AI</em>. Oversaw annotation pipelines and designed system architectures for on-prem deployment.</p>
+      </div>
+
+      <div class="titem">
+        <div class="dot"></div>
+        <h4>Computer Vision Engineer</h4>
+        <div class="where">Awidit Systems Pvt Ltd · 2022—2023</div>
+        <p class="muted">Engineered facial recognition, PPE detection, and AutoML solutions deployed across major warehouses in India. Achieved 99.4% accuracy on LFW and trained multiple vision models for Awiros platform.</p>
+      </div>
+
+      <div class="titem">
+        <div class="dot"></div>
+        <h4>Short Stint — KPMG India</h4>
+        <div class="where">KPMG India · 2021</div>
+        <p class="muted">Worked briefly on analytics and reporting automation tasks, gaining early exposure to enterprise workflows and data systems for Cyber Security.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   
 
