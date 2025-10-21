@@ -48,7 +48,7 @@
     }
 
     /* SECTIONS */
-    section { padding: 80px 18px; }
+    section { padding: 40px 18px; }
     .container { max-width: var(--maxw); margin: 0 auto; }
     .section-title { font-size: 28px; margin: 0 0 10px; }
     .section-lead { color: var(--muted); margin: 0 0 24px; }
@@ -73,6 +73,14 @@
     .news-item time { color: var(--muted); font-size: 14px; }
     .news-item h4 { margin: 2px 0 6px; }
     @media (max-width: 560px){ .news-item { grid-template-columns: 1fr; } }
+
+    /* PUBLICATIONS */
+    .pub-list { display: grid; gap: 14px; }
+    .pub { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 16px; }
+    .pub h4 { margin: 0 0 6px; font-size: 18px; }
+    .pub .authors { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+    .pub .venue { font-size: 13px; padding: 4px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); display: inline-block; margin-right: 8px; }
+    .pub .links { margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap; }
 
     /* PROJECTS */
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -125,9 +133,8 @@
         <a href="#home" class="navlink">Home</a>
         <a href="#about" class="navlink">About</a>
         <a href="#news" class="navlink">News</a>
-        <a href="#projects" class="navlink">Software Projects</a>
+        <a href="#publications" class="navlink">Publications</a>
         <a href="#experience" class="navlink">Experience</a>
-        <a href="#gallery" class="navlink">Pictures & Events</a>
       </div>
     </div>
   </nav>
@@ -136,21 +143,21 @@
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-card">
-        <img class="avatar" src="assets/avatar.jpg" alt="Portrait" />
+        <img class="avatar" src="assets/portrait.jpg" alt="Portrait" />
         <div>
-          <h1>Hi, I am Stavya Datta.</h1>
+          <h1>Stavya Datta.</h1>
           <p class="meta">PhD Researcher, Monash University. Human–Robot Interaction, Agentic AI, Multimodal Systems.</p>
           <div class="chipbar">
             <span class="chip">Social Robotics</span>
             <span class="chip">Multimodal Learning</span>
             <span class="chip">Agentic AI</span>
-            <span class="chip">Neo4j World Models</span>
+            <span class="chip">Social World Models</span>
           </div>
           <div class="spacer"></div>
           <div class="social">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
-            <a href="mailto:you@example.com">Email</a>
+            <a href="https://www.linkedin.com/in/stavyadatta" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=EDMBz7vDwvYC&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="mailto:stavya.datta1@monash.edu">Email</a>
             <a href="assets/CV.pdf" target="_blank" rel="noopener">CV</a>
           </div>
         </div>
@@ -164,90 +171,109 @@
       <h2 class="section-title">About</h2>
       <p>
         I study long‑term human‑robot social interactions. My work integrates
-        speech, vision, and action with world‑model graphs and retrieval.
+        speech, vision, and action with social world‑model graphs, towards creating anthropomorphic humanoids.
       </p>
       <p>
-        I lead ARIS, an agentic framework for Pepper that learns relationships,
-        remembers conversations, and coordinates dialogue with embodiment.
+        I have over two years of combined research and industry experience as a Computer Vision and AI Engineer.
+        At Monash University, I contributed to the DARPA ANSR project as a Research Assistant, developing
+        autonomous perception and tracking modules for aerial simulation environments. My research focuses on
+        social robotics and multimodal reasoning, where I work on building agentic AI systems for long-term
+        human–robot interaction.
+      </p>
+      <p>
+        Prior to this, I engineered computer vision solutions at Awiros Systems and
+        Aditya Infotech, deploying deep learning models for facial recognition and video analytics for
+        <a href="https://www.livemint.com/news/india/startup-awiros-to-power-ai-based-video-analytics-for-bengaluru-safe-city-project-11665749881541.html" target="_blank" rel="noopener"> 
+          Bangalore's Safe City Project. 
+      </a>
+          I also serve as a Teaching Associate, mentoring students in Artificial Intelligence 
+          <a href="https://handbook.monash.edu/2024/units/FIT3080", target="_blank" rel="noopener">
+            (FIT3080)
+            </a>
+            , Python programming 
+            <a href="https://handbook.monash.edu/2025/units/FIT9136", target="_blank" rel="noopener">
+            (FIT9136)
+            </a>,
+            and Software Projects (<a href="https://handbook.monash.edu/2025/units/FIT3161" target="_blank" rel="noopener">FIT3161</a> /
+  <a href="https://handbook.monash.edu/2025/units/FIT3162" target="_blank" rel="noopener">FIT3162</a> /
+  <a href="https://handbook.monash.edu/2025/units/FIT3163" target="_blank" rel="noopener">FIT3163</a> /
+  <a href="https://handbook.monash.edu/2025/units/FIT3164" target="_blank" rel="noopener">FIT3164</a>).
       </p>
     </div>
   </section>
 
-  <!-- NEWS -->
-  <section id="news">
-    <div class="container">
-      <h2 class="section-title">News</h2>
-      <p class="section-lead">Recent updates and highlights.</p>
-      <div class="news-list">
-        <article class="news-item">
-          <time>Oct 2025</time>
-          <div>
-            <h4>Paper under review at HRI 2026</h4>
-            <p class="muted">ARIS: Agentic and Relationship Intelligence System for Social Robots.</p>
-          </div>
-        </article>
-        <article class="news-item">
-          <time>Sep 2025</time>
-          <div>
-            <h4>Demo at PAX Melbourne</h4>
-            <p class="muted">Live Pepper demo of agentic reasoning and world‑model memory.</p>
-          </div>
-        </article>
-        <article class="news-item">
-          <time>Aug 2025</time>
-          <div>
-            <h4>Invited talk</h4>
-            <p class="muted">Spoke on multimodal agents and social embodiment.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+<!-- NEWS -->
+<section id="news">
+  <div class="container">
+    <h2 class="section-title">News</h2>
+    <p class="section-lead">Recent updates and highlights.</p>
+    <div class="news-list">
+      <article class="news-item">
+        <time>Oct 2025</time>
+        <div>
+          <h4>Paper under review at HRI 2026</h4>
+          <p class="muted">ARIS: Agentic and Relationship Intelligence System for Social Robots.</p>
+        </div>
+      </article>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Software Projects</h2>
-      <p class="section-lead">Open‑source toolkits and research code.</p>
-      <div class="grid">
-        <div class="card">
-          <h4>ARIS</h4>
-          <p class="muted">Agentic AI framework for Pepper: world‑model graphs, RAG, embodiment.</p>
-          <div>
-            <span class="tag">Python</span>
-            <span class="tag">Neo4j</span>
-            <span class="tag">gRPC</span>
-          </div>
-          <div class="cta-row">
-            <a class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" href="#" target="_blank" rel="noopener">Docs</a>
-          </div>
+      <article class="news-item">
+        <time>Sep 2025</time>
+        <div>
+          <h4>Demo at PAX Melbourne</h4>
+          <p class="muted">Live Pepper demo of agentic reasoning and world-model memory.</p>
         </div>
-        <div class="card">
-          <h4>RAG Bench</h4>
-          <p class="muted">Benchmark for long‑term conversational retrieval and memory.</p>
-          <div>
-            <span class="tag">Python</span>
-            <span class="tag">Embeddings</span>
-          </div>
-          <div class="cta-row">
-            <a class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
-          </div>
+      </article>
+
+      <article class="news-item">
+        <time>Aug 2025</time>
+        <div>
+          <h4>Invited talk</h4>
+          <p class="muted">Spoke on multimodal agents and social embodiment.</p>
         </div>
-        <div class="card">
-          <h4>Pepper Moves</h4>
-          <p class="muted">JSON‑driven movement and gesture library for Pepper.</p>
-          <div>
-            <span class="tag">NAOqi</span>
-            <span class="tag">Robotics</span>
-          </div>
-          <div class="cta-row">
-            <a class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
-          </div>
+      </article>
+
+      <article class="news-item">
+        <time>July 2025</time>
+        <div>
+          <h4>Photos</h4>
+          <p class="muted">
+            Explore event highlights and research photos in the
+            <a href="https://photos.app.goo.gl/examplelink" target="_blank" rel="noopener">Photo Gallery →</a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <!-- PUBLICATIONS -->
+   <section id="publications">
+  <div class="container">
+    <h2 class="section-title">Publications</h2>
+    <div class="pub-list">
+      <div class="pub">
+        <h4>NEUSIS: A Compositional Neuro-Symbolic Framework for Autonomous Perception, Reasoning, and Planning in Complex UAV Search Missions</h4>
+        <div class="authors">Z. Cai, C.R. Cardenas, K. Leo, C. Zhang, K. Backman, H. Li, B. Li, M. Ghorbanali, <strong>S. Datta</strong>, L. Qu, J.G. Santiago (2024)</div>
+        <span class="venue">RA-L</span>
+        <div class="links">
+          <a class="btn" href="https://arxiv.org/abs/2409.10196" target="_blank" rel="noopener">arXiv</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <h4>JRDB-PanoTrack: An Open-world Panoptic Segmentation and Tracking Robotic Dataset in Crowded Human Environments</h4>
+        <div class="authors">D.T. Le, C. Gou, <strong>S. Datta</strong>, H. Shi, I. Reid, J. Cai, H. Rezatofighi (2024)</div>
+        <span class="venue">CVPR 2024</span>
+        <div class="links">
+          <a class="btn" href="https://openaccess.thecvf.com" target="_blank" rel="noopener">Paper</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">Dataset</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
@@ -276,41 +302,7 @@
     </div>
   </section>
 
-  <!-- GALLERY: Pictures & Events with Horizontal Scroll -->
-  <section id="gallery">
-    <div class="container">
-      <h2 class="section-title">Pictures & Events</h2>
-      <p class="section-lead">Swipe sideways. Click a card to open its link.</p>
-      <div class="gallery-wrap">
-        <!-- Each .gcard can link out to LinkedIn, event page, or media post -->
-        <a class="gcard" href="https://www.linkedin.com/" target="_blank" rel="noopener">
-          <img src="assets/pics/event1.jpg" alt="Event 1" />
-          <div class="content">
-            <h5>PAX Melbourne Demo</h5>
-            <p>Live showcase of ARIS on Pepper.</p>
-            <span>Open link →</span>
-          </div>
-        </a>
-        <a class="gcard" href="https://www.linkedin.com/" target="_blank" rel="noopener">
-          <img src="assets/pics/event2.jpg" alt="Event 2" />
-          <div class="content">
-            <h5>Invited Talk</h5>
-            <p>Multimodal agents and embodiment.</p>
-            <span>Open link →</span>
-          </div>
-        </a>
-        <a class="gcard" href="https://www.linkedin.com/" target="_blank" rel="noopener">
-          <img src="assets/pics/event3.jpg" alt="Event 3" />
-          <div class="content">
-            <h5>Workshop</h5>
-            <p>Hands‑on agentic robotics session.</p>
-            <span>Open link →</span>
-          </div>
-        </a>
-        <!-- Add more cards as needed -->
-      </div>
-    </div>
-  </section>
+  
 
   <footer>
     <div class="footer-inner">
