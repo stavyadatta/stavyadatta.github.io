@@ -68,12 +68,30 @@
     .about p { line-height: 1.7; color: #d7dce3; }
 
     /* NEWS */
-    .news-list { display: grid; gap: 14px; }
-    .news-item { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 16px; display: grid; grid-template-columns: 110px 1fr; gap: 14px; }
-    .news-item time { color: var(--muted); font-size: 14px; }
-    .news-item h4 { margin: 2px 0 6px; }
-    @media (max-width: 560px){ .news-item { grid-template-columns: 1fr; } }
+  .news-list { display: grid; gap: 14px; }
+  .news-item {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 96px 1fr; /* left: image, right: content */
+    gap: 14px;
+    align-items: center;
+  }
+  .news-item img.thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.10);
+  }
+  .news-item time { color: var(--muted); font-size: 14px; display: block; margin-bottom: 4px; }
+  .news-item h4 { margin: 2px 0 6px; }
 
+  @media (max-width: 560px){
+    .news-item { grid-template-columns: 80px 1fr; }
+  }
     /* PUBLICATIONS */
     .pub-list { display: grid; gap: 14px; }
     .pub { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 16px; }
@@ -209,35 +227,39 @@
     <p class="section-lead">Recent updates and highlights.</p>
     <div class="news-list">
       <article class="news-item">
-        <time>Oct 2025</time>
+        <img class="thumb" src="assets/news/2025-10-hri.jpg" alt="HRI 2026 submission" loading="lazy" />
         <div>
+          <time>Oct 2025</time>
           <h4>Paper under review at HRI 2026</h4>
           <p class="muted">ARIS: Agentic and Relationship Intelligence System for Social Robots.</p>
         </div>
       </article>
 
       <article class="news-item">
-        <time>Sep 2025</time>
+        <img class="thumb" src="assets/news/2025-09-pax.jpg" alt="PAX Melbourne demo" loading="lazy" />
         <div>
+          <time>Sep 2025</time>
           <h4>Demo at PAX Melbourne</h4>
           <p class="muted">Live Pepper demo of agentic reasoning and world-model memory.</p>
         </div>
       </article>
 
       <article class="news-item">
-        <time>Aug 2025</time>
+        <img class="thumb" src="assets/news/2025-08-talk.jpg" alt="Invited talk" loading="lazy" />
         <div>
+          <time>Aug 2025</time>
           <h4>Invited talk</h4>
           <p class="muted">Spoke on multimodal agents and social embodiment.</p>
         </div>
       </article>
 
       <article class="news-item">
-        <time>July 2025</time>
+        <img class="thumb" src="assets/news/2025-07-photos.jpg" alt="Photo gallery" loading="lazy" />
         <div>
+          <time>Jul 2025</time>
           <h4>Photos</h4>
           <p class="muted">
-            Explore event highlights and research photos in the
+            Explore event highlights in the
             <a href="https://photos.app.goo.gl/examplelink" target="_blank" rel="noopener">Photo Gallery →</a>
           </p>
         </div>
