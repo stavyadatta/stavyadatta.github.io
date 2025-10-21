@@ -35,15 +35,26 @@
     .nav-inner { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; }
     .brand { font-weight: 800; letter-spacing: .3px; }
     .brand small { color: var(--muted); font-weight: 400; margin-left: 8px; }
-    .links { display: flex; gap: 18px; align-items: center; }
-    .links a { color: var(--text); opacity: .85; font-weight: 600; }
+    .nav .links { display: flex; gap: 18px; align-items: center; }
+    .nav .links a { color: var(--text); opacity: .85; font-weight: 600; }
     .links a.active { color: var(--accent); }
     .hamburger { display: none; cursor: pointer; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; }
 
     @media (max-width: 860px){
-      .links { display: none; position: absolute; right: 16px; top: 58px; background: var(--card); padding: 12px; border-radius: 12px; flex-direction: column; box-shadow: var(--shadow); min-width: 200px; }
-      .links.show { display: flex; }
+     .nav .links {
+    display: none;
+    position: absolute;
+    right: 16px;
+    top: 58px;
+    background: var(--card);
+    padding: 12px;
+    border-radius: 12px;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    min-width: 200px;
+  }
+  .nav .links.show { display: flex; }
       .hamburger { display: block; }
     }
 
@@ -278,7 +289,7 @@
         <h4>NEUSIS: A Compositional Neuro-Symbolic Framework for Autonomous Perception, Reasoning, and Planning in Complex UAV Search Missions</h4>
         <div class="authors">Z. Cai, C.R. Cardenas, K. Leo, C. Zhang, K. Backman, H. Li, B. Li, M. Ghorbanali, <strong>S. Datta</strong>, L. Qu, J.G. Santiago (2024)</div>
         <span class="venue">RA-L</span>
-        <div class="links">
+        <div class="pub-links">
           <a class="btn" href="https://arxiv.org/abs/2409.10196" target="_blank" rel="noopener">arXiv</a>
         </div>
       </div>
@@ -287,7 +298,7 @@
         <h4>JRDB-PanoTrack: An Open-world Panoptic Segmentation and Tracking Robotic Dataset in Crowded Human Environments</h4>
         <div class="authors">D.T. Le, C. Gou, <strong>S. Datta</strong>, H. Shi, I. Reid, J. Cai, H. Rezatofighi (2024)</div>
         <span class="venue">CVPR 2024</span>
-        <div class="links">
+        <div class="pub-links">
           <a class="btn" href="https://openaccess.thecvf.com" target="_blank" rel="noopener">Paper</a>
           <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
           <a class="btn" href="#" target="_blank" rel="noopener">Dataset</a>
