@@ -161,6 +161,36 @@
     /* UTIL */
     .muted { color: var(--muted); }
     .spacer { height: 12px; }
+
+    /* SOCIAL ICON CARDS */
+    .social-icons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(90px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .s-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 12px 10px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .s-card:hover { transform: translateY(-2px); filter: brightness(1.05); }
+    .s-card img, .s-card svg {
+      width: 44px; height: 44px; display: block; margin: 0 auto 6px;
+      border-radius: 8px;
+    }
+    .s-card span {
+      display: block; font-weight: 600; color: var(--text); font-size: 13px;
+    }
+    @media (max-width: 560px){
+      .social-icons { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+    }
+
+
   </style>
 </head>
 <body>
@@ -196,12 +226,33 @@
             <span class="chip">Social World Models</span>
           </div>
           <div class="spacer"></div>
-          <div class="social">
-            <a href="https://vl4ai.erc.monash.edu/people.html#:~:text=Stavya%20Datta,large%20language%20models." target="_blank" rel="noopener">VL4AI</a>
-            <a href="https://www.linkedin.com/in/stavyadatta" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://scholar.google.com/citations?user=EDMBz7vDwvYC&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-            <a href="mailto:stavya.datta1@monash.edu">Email</a>
-          </div>
+          <div class="social-icons">
+  <!-- VL4AI (placeholder image below) -->
+  <a class="s-card" href="https://vl4ai.erc.monash.edu/people.html#:~:text=Stavya%20Datta,large%20language%20models." target="_blank" rel="noopener" aria-label="VL4AI">
+    <!-- Use the SVG placeholder, or replace with assets/icons/vl4ai.png -->
+    <img src="assets/icons/vl4ai.png" alt="VL4AI logo">
+    <span>VL4AI</span>
+  </a>
+
+  <!-- LinkedIn -->
+  <a class="s-card" href="https://www.linkedin.com/in/stavyadatta" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <img src="assets/icons/linkedin.svg" alt="LinkedIn logo">
+    <span>LinkedIn</span>
+  </a>
+
+  <!-- Google Scholar -->
+  <a class="s-card" href="https://scholar.google.com/citations?user=EDMBz7vDwvYC&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+    <img src="assets/icons/scholar.svg" alt="Google Scholar logo">
+    <span>Scholar</span>
+  </a>
+
+  <!-- Email -->
+  <a class="s-card" href="mailto:stavya.datta1@monash.edu" aria-label="Email">
+    <img src="assets/icons/email.svg" alt="Email icon">
+    <span>Email</span>
+  </a>
+</div>
+
         </div>
       </div>
     </div>
