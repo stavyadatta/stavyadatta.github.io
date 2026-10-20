@@ -500,18 +500,21 @@
 
     // LinkedIn activity feed. The JSON file is updated by the scheduled sync.
     const linkedinList = document.getElementById('linkedin-list');
+    const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
     fetch('data/linkedin_posts.json')
       .then(response => response.ok ? response.json() : Promise.reject(new Error('feed unavailable')))
       .then(posts => {
         linkedinList.innerHTML = posts.map(post => {
-          const safeTitle = post.title || 'LinkedIn update';
-          const safeText = post.text || '';
+          const safeTitle = escapeHtml(post.title || 'LinkedIn update');
+          const safeText = escapeHtml(post.text || '');
+          const safeDate = escapeHtml(post.date || '');
+          const safeUrl = escapeHtml(post.url || '');
           const dateLabel = new Date(`${post.date}T00:00:00Z`).toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
           return `<article class="linkedin-card">
-            <time datetime="${post.date}">${dateLabel}</time>
+            <time datetime="${safeDate}">${dateLabel}</time>
             <h4>${safeTitle}</h4>
             <p>${safeText}</p>
-            ${post.url ? `<a class="post-link" href="${post.url}" target="_blank" rel="noopener">View on LinkedIn ↗</a>` : ''}
+            ${safeUrl ? `<a class="post-link" href="${safeUrl}" target="_blank" rel="noopener">View on LinkedIn ↗</a>` : ''}
           </article>`;
         }).join('');
       })
