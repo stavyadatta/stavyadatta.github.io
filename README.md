@@ -4,7 +4,7 @@ The site is deployed from `main` to [stavyadatta.com](https://stavyadatta.com/).
 
 ## LinkedIn activity sync
 
-`data/linkedin_posts.json` contains the public activity shown in the LinkedIn activity section. The scheduled workflow runs every two days and uses LinkedIn's authorised Posts API; it does not scrape a browser session.
+`data/linkedin_posts.json` contains the public posts shown in the Latest news section. The scheduled workflow runs every two days and uses LinkedIn's authorised Posts API; it filters out non-public visibility values and does not scrape a browser session.
 
 To enable automatic updates, add these repository secrets in GitHub:
 

@@ -68,6 +68,9 @@ def normalize_posts(payload: dict | list) -> list[dict]:
         if not isinstance(item, dict):
             continue
         post_id = str(item.get("id") or item.get("urn") or "").strip()
+        visibility = item.get("visibility")
+        if visibility is not None and visibility != "PUBLIC":
+            continue
         post_date = _created_date(item)
         text = _text(item)
         if not post_id or not post_date or not text or post_id in seen:
