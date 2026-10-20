@@ -107,6 +107,14 @@
     .news-item time { color: var(--muted); font-size: 14px; display: block; margin-bottom: 4px; }
     .news-item h4 { margin: 2px 0 6px; }
 
+    /* LINKEDIN */
+    .linkedin-list { display: grid; gap: 14px; }
+    .linkedin-card { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 16px; }
+    .linkedin-card time { color: var(--muted); font-size: 14px; }
+    .linkedin-card h4 { margin: 5px 0 7px; }
+    .linkedin-card p { margin: 0 0 10px; color: #d7dce3; line-height: 1.55; }
+    .linkedin-card .post-link { font-size: 14px; font-weight: 600; }
+
     @media (max-width: 560px){
       .news-item { grid-template-columns: 1fr; }
       .news-item img.thumb {
@@ -205,6 +213,7 @@
         <a href="#home" class="navlink">Home</a>
         <a href="#about" class="navlink">About</a>
         <a href="#news" class="navlink">News</a>
+        <a href="#linkedin" class="navlink">LinkedIn</a>
         <a href="#publications" class="navlink">Publications</a>
         <a href="#experience" class="navlink">Experience</a>
       </div>
@@ -375,6 +384,15 @@
   </div>
 </section>
 
+<!-- LINKEDIN ACTIVITY -->
+<section id="linkedin">
+  <div class="container">
+    <h2 class="section-title">LinkedIn activity</h2>
+    <p class="section-lead">Selected posts and announcements since October 2025.</p>
+    <div id="linkedin-list" class="linkedin-list" aria-live="polite"></div>
+  </div>
+</section>
+
 
   <!-- PUBLICATIONS -->
    <section id="publications">
@@ -479,6 +497,27 @@
 
     // Close menu on link click (mobile)
     document.querySelectorAll('.navlink').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('show')));
+
+    // LinkedIn activity feed. The JSON file is updated by the scheduled sync.
+    const linkedinList = document.getElementById('linkedin-list');
+    fetch('data/linkedin_posts.json')
+      .then(response => response.ok ? response.json() : Promise.reject(new Error('feed unavailable')))
+      .then(posts => {
+        linkedinList.innerHTML = posts.map(post => {
+          const safeTitle = post.title || 'LinkedIn update';
+          const safeText = post.text || '';
+          const dateLabel = new Date(`${post.date}T00:00:00Z`).toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
+          return `<article class="linkedin-card">
+            <time datetime="${post.date}">${dateLabel}</time>
+            <h4>${safeTitle}</h4>
+            <p>${safeText}</p>
+            ${post.url ? `<a class="post-link" href="${post.url}" target="_blank" rel="noopener">View on LinkedIn ↗</a>` : ''}
+          </article>`;
+        }).join('');
+      })
+      .catch(() => {
+        linkedinList.innerHTML = '<p class="muted">LinkedIn updates are temporarily unavailable.</p>';
+      });
 
     // Scrollspy to highlight active link
     const sections = Array.from(document.querySelectorAll('section'));
